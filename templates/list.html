@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Emails</h1>
+<ul>
+{% for email in emails %}
+    <li>
+        {% if email.is_read %}
+            <strong>{{ email.sender }}:</strong> {{ email.subject }}
+        {% else %}
+            <strong>{{ email.sender }}:</strong> <a href="{% url 'emails_detail' email.pk %}">{{ email.subject }}</a>
+        {% endif %}
+    </li>
+{% empty %}
+    <li>No emails.</li>
+{% endfor %}
+</ul>
+{% endblock %}

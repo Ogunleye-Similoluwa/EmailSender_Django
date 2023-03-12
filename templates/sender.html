@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+    <p>Email_Receiver:<label>
+        <input type="text" name="receiver">
+    </label></p>
+    <p>Subject:<label>
+        <input type="text" name="subject">
+    </label></p>
+    <p>Message:<label>
+        <textarea name ="msg" ></textarea>
+    </label></p>
+    <button type="submit" VALUE="submit" name="submit"></button>
+    </form>
+    <h2>{{ subject }}</h2>
+{% endblock content %}
